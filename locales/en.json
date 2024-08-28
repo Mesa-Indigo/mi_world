@@ -1,0 +1,13 @@
+{
+    "debug": "Debug: ",
+
+    "load_in": "Connected: ",
+    "load_out": "Disconnected: ",
+
+    "user_name": "User: ",
+    "user_usid": "User ID: ",
+    "user_idnt": "User Identifier: ",
+    "char_stid": "State ID: ",
+
+    "user_unkn": "User not found in database"
+}
