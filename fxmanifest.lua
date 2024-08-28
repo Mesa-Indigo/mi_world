@@ -49,6 +49,8 @@ files {
     -- ymap files
     'stream/**/*.ymap',
     'stream/**/*.ymt',
+    'stream/**/*.ybn',
+    'stream/**/*.vbn',
 
     -- 'stream/**/*.ytyp',
     -- 'stream/**/*.ymf',
