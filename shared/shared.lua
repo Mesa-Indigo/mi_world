@@ -16,3 +16,6 @@ Locale = 'en'
 
 -- load locale
 lib.locale()
+
+-- load fields
+Shared.Fields = true
