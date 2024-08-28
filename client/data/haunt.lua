@@ -32,28 +32,22 @@ local choice = function(list)
     return result
 end
 
-RegisterCommand('haunt', function()
-    local form, point, head = choice(forms), choice(points), math.random(1, 360)
-    Cnt.Create_Prop(ghost.obj, form, point, head, false)
-    if Debug then
-        lib.print.info('Ghost Sighting: '..point)
-        local time = Cnt.GetWorldTime()
-        lib.print.info(time.hour)
-    end
-end, false)
-
 Citizen.CreateThread(function()
-    local time = Cnt.GetWorldTime()
-    if time.hour >= 2 and time.hour <= 5 then
-        if not DoesEntityExist(ghost.obj) then
-            local form, point, head = choice(forms), choice(points), math.random(1, 360)
-            Cnt.Create_Prop(ghost.obj, form, point, head, false)
-            if Debug then
-                lib.print.info('Ghost Sighting: '..point)
+    while true do
+        local time = Cnt.GetWorldTime()
+        if time.hour >= 1 and time.hour <= 4 and not ghost.spawned then
+            if not DoesEntityExist(ghost.obj) then
+                local form, point, head = choice(forms),
+                choice(points), math.random(1, 360)
+                Cnt.Create_Prop(ghost.obj, form, point, head, false)
+                ghost.spawned = true
+                if Debug then
+                    lib.print.info('Ghost Sighting: '..point)
+                end
             end
+        else
+            Cnt.Delete(ghost.obj)
         end
-    else
-        Cnt.Delete(ghost.obj)
+        Citizen.Wait(60000)
     end
-    Citizen.Wait(120000)
 end)
