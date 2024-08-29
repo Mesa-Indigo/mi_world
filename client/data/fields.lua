@@ -44,16 +44,15 @@ end
 -- thread
 Citizen.CreateThread(function()
     while Shared.Fields do
-        local cooldown = 2000
+        local cooldown = 2500
         for k, v in ipairs(Data.Fields) do
             if lib.getNearbyPlayers(v.spawn, 50, true) then
                 if v.data.obj < v.count then
-                    cooldown = 5000
                     lib.requestModel(v.model, cooldown)
                     local loc = v.spawn
                     v.data.set = Cnt.Create_Prop(v.data.set, v.model,
                     vec3(loc.x+math.random(-v.size, v.size),
-                    loc.y+math.random(-v.size, v.size), loc.z),
+                    loc.y+math.random(-v.size, v.size), loc.z-1),
                     math.random(1, 359), true)
                     PlaceObjectOnGroundProperly(v.data.set)
                     table.insert(v.data.list, v.data.set)
@@ -84,15 +83,5 @@ Citizen.CreateThread(function()
             end
         end
         Citizen.Wait(cooldown)
-    end
-end)
-
--- event handlers
-AddEventHandler('onResourceStop', function(resource)
-    if resource == GetCurrentResourceName() then
-        -- delete fields
-        for k, v in ipairs(Data.Fields) do
-            Cnt.Delete(v.data.obj)
-        end
     end
 end)
