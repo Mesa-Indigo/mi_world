@@ -1,69 +1,55 @@
 
--- variables
-local anim = {
-    collect = { dict= 'random@domestic', clip = 'pickup_low' }
-}
-
-local way = false
-
--- functions
-local ensurecoords = function(objcd, space, obj, list)
-    if obj > 0 then local ensured = true
-
-        for k, v in pairs(list) do
-            if #(objcd - GetEntityCoords(v)) < 5 then
-                ensured = false
-            end
-        end
-
-        if #(objcd - space) > 50 then
-            ensured = false
-        end
-
-        return ensured
-    else
-        return true
-    end
-end
-
-
-local createfield = function(space, obj, list)
-    while true do
-        Wait(250)
-        local cx, cy, cz
-
-        local mx = math.random(-15, 15)
-
-        local my = math.random(-15, 15)
-
-        cx = space+mx
-        cy = space+my
-        cz = space.z
-
-        local cd = vector3(cx, cy, cz)
-
-        if ensurecoords(cd, space, obj, list) then
-            return cd
-        end
+-- function
+local collect = function(data)
+    if lib.progressBar({
+        duration = data.duration,
+        label = locale('collecting')..locale(data.locale),
+        useWhileDead = false, canCancel = true,
+        disable = {
+            car = true, move = true
+        },
+        anim = { scenario = 'CODE_HUMAN_MEDIC_TEND_TO_DEAD' },
+    }) then
+        local result = math.random(data.amount.min, data.amount.max)
+        local choice = data.item[math.random(1, #data.item)]
+        lib.callback.await('mi:item:add', cache.ped, choice, result)
+        Wait(250) Cnt.Delete(data.data.set)
     end
 end
 
 -- thread
 Citizen.CreateThread(function()
     while Shared.Fields do
-        local cooldown = 1000
+        local cooldown = 2000
         for k, v in ipairs(Data.Fields) do
-            if #(GetEntityCoords(cache.ped) - v.loc) < 50 then
-                cooldown = 500
-                if v.spawned.obj < 15 and not way then
-                    way = true
-                    while v.spawned.obj < 15 do
-                        Citizen.Wait(50)
-                        v.spawned.loc = createfield(v.loc, v.spawned.obj, v.spawned.loc)
-                        v.spawned.obj = lib.callback('mi:create:object', false,
-                        function() end, v.spawned.loc, v.model)
-                    end
-                    way = false
+            if lib.getNearbyPlayers(v.spawn, 50, true) then
+                if v.data.obj < v.count then
+                    cooldown = 5000
+                    lib.requestModel(v.model, cooldown)
+                    local loc = v.spawn
+                    v.data.set = Cnt.Create_Prop(v.data.set, v.model,
+                    vec3(loc.x+math.random(-v.size, v.size),
+                    loc.y+math.random(-v.size, v.size), loc.z),
+                    math.random(1, 359), true)
+                    table.insert(v.data.list, v.data.set)
+                    v.data.obj = v.data.obj + 1
+                    local options = {
+                        {
+                            label = locale('collect')..v.label,
+                            icon = v.sprite, iconColor = v.spcolor,
+                            canInteract = function(_, distance)
+                                return distance < 1.5
+                            end,
+                            onSelect = function(data)
+                                collect(v) Cnt.Delete(data.entity)
+                                v.data.obj = v.data.obj - 1
+                                if Debug then
+                                    lib.print.info(v.data.obj)
+                                end
+                            end
+                        }
+                    }
+                    Target:addLocalEntity(v.data.set, options)
                 end
             end
         end

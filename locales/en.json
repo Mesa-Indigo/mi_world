@@ -9,5 +9,9 @@
     "user_idnt": "User Identifier: ",
     "char_stid": "State ID: ",
 
-    "user_unkn": "User not found in database"
+    "user_unkn": "User not found in database",
+
+    "collect": "Collect: ",
+    "collecting": "Collecting ",
+    "cannabis": "Cannabis"
 }

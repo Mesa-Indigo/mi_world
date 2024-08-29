@@ -3,17 +3,24 @@
 Data.Fields = {
     {
         -- locaiton
-        loc = vector3(2014.318, 514.068, 164.873),
-        -- label of object / item to give
-        label = 'Poppy', item = 'poppyresin',
+        spawn = vector3(2006.815, 502.951, 164.579),
+        -- amount of props to load
+        count = 10,
+        -- size of field
+        size = 15,
+        -- label of object / sprite
+        label = 'Cannabis', sprite = 'fa-solid fa-cannabis',
+        -- sprite color
+        spcolor = '#27AE60',
+        -- item to give
+        item = { 'wd_sativa', 'wd_indica', 'wd_hybrid'},
+        -- locale to use for object
+        locale = 'cannabis',
         -- min / max amount to give
         amount = { min = 1, max = 5 },
         -- model of object / time to collect
-        model = 'prop_cs_plant_01', duration = 1000,
-        -- blip info
-        blip = true, blipSprite = 403,
-        blipColour = 0, blipRadius = true,
+        model = 'prop_weed_01', duration = 5000,
         -- general data for list
-        spawned = {obj = 0, list = {}, loc = nil }
+        data = { obj = 0, list = {}, set = nil }
     },
 }
