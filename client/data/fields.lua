@@ -1,6 +1,6 @@
 
--- function
-local collect = function(data)
+-- function by collection type
+local collect_normal = function(data)
     if lib.progressBar({
         duration = data.duration,
         label = locale('collecting')..locale(data.locale),
@@ -9,6 +9,32 @@ local collect = function(data)
             car = true, move = true
         },
         anim = { scenario = 'CODE_HUMAN_MEDIC_TEND_TO_DEAD' },
+    }) then
+        local result = math.random(data.amount.min, data.amount.max)
+        local choice = data.item[math.random(1, #data.item)]
+        lib.callback.await('mi:item:add', cache.ped, choice, result)
+        Wait(250) Cnt.Delete(data.data.set)
+    end
+end
+
+local collect_mining = function(data)
+    if lib.progressBar({
+        duration = data.duration,
+        label = locale('collecting')..locale(data.locale),
+        useWhileDead = false, canCancel = true,
+        disable = {
+            car = true, move = true
+        },
+        anim = {
+            blendIn = 3.0, dict = 'melee@large_wpn@streamed_core',
+            clip = 'ground_attack_on_spot', blendOut = 3.0,
+        },
+        prop = {
+            bone = 57005,
+            model = `prop_tool_pickaxe`,
+            pos = vec3(0.05, -0.25, -0.04),
+            rot = vec3(80.0, -20.0, 175.0)
+        },
     }) then
         local result = math.random(data.amount.min, data.amount.max)
         local choice = data.item[math.random(1, #data.item)]
@@ -41,7 +67,12 @@ Citizen.CreateThread(function()
                                 return distance < 1.5
                             end,
                             onSelect = function(data)
-                                collect(v) Cnt.Delete(data.entity)
+                                if v.type == 'normal' then
+                                    collect_normal(v)
+                                elseif v.type == 'mining' then
+                                    collect_mining(v)
+                                end
+                                Cnt.Delete(data.entity)
                                 v.data.obj = v.data.obj - 1
                                 if Debug then
                                     lib.print.info(v.data.obj)

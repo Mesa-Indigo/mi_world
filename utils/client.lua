@@ -70,9 +70,6 @@ end
 -- returns error if object not found
 Cnt.Delete = function(obj)
     if not obj then
-        if Debug then
-            lib.print.error(locale('debug')..'No presented entity to delete')
-        end
     return end
     DeleteEntity(obj)
     obj = nil
