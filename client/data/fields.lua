@@ -3,7 +3,7 @@
 local collect_normal = function(data)
     if lib.progressBar({
         duration = data.duration,
-        label = locale('collecting')..locale(data.locale),
+        label = locale('collecting')..locale(data.label),
         useWhileDead = false, canCancel = true,
         disable = {
             car = true, move = true
@@ -13,14 +13,13 @@ local collect_normal = function(data)
         local result = math.random(data.amount.min, data.amount.max)
         local choice = data.item[math.random(1, #data.item)]
         lib.callback.await('mi:item:add', cache.ped, choice, result)
-        Wait(250) Cnt.Delete(data.data.set)
     end
 end
 
 local collect_mining = function(data)
     if lib.progressBar({
         duration = data.duration,
-        label = locale('collecting')..locale(data.locale),
+        label = locale('collecting')..locale(data.label),
         useWhileDead = false, canCancel = true,
         disable = {
             car = true, move = true
@@ -39,7 +38,6 @@ local collect_mining = function(data)
         local result = math.random(data.amount.min, data.amount.max)
         local choice = data.item[math.random(1, #data.item)]
         lib.callback.await('mi:item:add', cache.ped, choice, result)
-        Wait(250) Cnt.Delete(data.data.set)
     end
 end
 
@@ -57,11 +55,12 @@ Citizen.CreateThread(function()
                     vec3(loc.x+math.random(-v.size, v.size),
                     loc.y+math.random(-v.size, v.size), loc.z),
                     math.random(1, 359), true)
+                    PlaceObjectOnGroundProperly(v.data.set)
                     table.insert(v.data.list, v.data.set)
                     v.data.obj = v.data.obj + 1
                     local options = {
                         {
-                            label = locale('collect')..v.label,
+                            label = locale('collect')..locale(v.label),
                             icon = v.sprite, iconColor = v.spcolor,
                             canInteract = function(_, distance)
                                 return distance < 1.5
@@ -92,5 +91,8 @@ end)
 AddEventHandler('onResourceStop', function(resource)
     if resource == GetCurrentResourceName() then
         -- delete fields
+        for k, v in ipairs(Data.Fields) do
+            Cnt.Delete(v.data.obj)
+        end
     end
 end)
