@@ -5,11 +5,13 @@ Data.Vend = {
     -- recycling vendor
     recycle = {
         -- blip active / sprite / color / scale
-        blip = true, sprite = 5, color = 1, scale = 0.6,
+        blip = true, sprite = 728, color = 43, scale = 0.6,
+        -- blip name
+        bname = 'Recycle Center',
         -- menu details
         label = 'Recycling', icon = 'recycle',
         -- location of vendor
-        spawn = vec4(-319.000, -1546.691, 27.774, 338.543),
+        spawn = vec4(-318.765, -1545.635, 27.811, 339.67),
         -- model of vendor / animaiton
         model = 's_m_m_dockwork_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
         -- items to be sold

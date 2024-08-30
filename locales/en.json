@@ -20,5 +20,7 @@
     "chemicals": "Chemicals",
     "vegetables": "Vegetables",
     "treasure": "Treasure",
-    "recycling": "Recyclables"
+    "recycling": "Recyclables",
+
+    "vendor": "Vendor"
 }
