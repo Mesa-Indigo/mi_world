@@ -185,4 +185,25 @@ Data.Vend = {
             ['ck_tomatoes'] =       { label = 'Tomatoes',   value = 5 },
         },
     },
+
+    humanelabs = {
+        -- blip active / sprite / color / scale
+        blip = true, sprite = 499, color = 30, scale = 0.6,
+        -- blip name
+        bname = 'Humane Chemicals',
+        -- menu details
+        label = 'Humane Chemicals', icon = 'chemicals',
+        -- location of vendor
+        spawn = vec4(3566.354, 3703.531, 36.642, 338.177),
+        -- model of vendor / animaiton
+        model = 's_m_m_scientist_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
+        -- items to be sold
+        items = {
+            ['chem_sulfur'] =       { label = 'Potatoes',   value = 7 },
+            ['chem_potnitr'] =        { label = 'Peppers',    value = 9 },
+            ['chem_psdnrn'] =         { label = 'Onions',     value = 5 },
+            ['chem_iodine'] =        { label = 'Lettuce',    value = 7 },
+            ['chem_phsrus'] =       { label = 'Tomatoes',   value = 5 },
+        },
+    },
 }
