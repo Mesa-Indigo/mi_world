@@ -41,15 +41,17 @@ end
 -- create object function for props
 -- mission entity sets to belong to this script
 -- bool is to determine if it will be a grounded prop
-Cnt.Create_Prop = function(obj, model, coord, head, bool)
+Cnt.Create_Prop = function(obj, model, coord, head, bool1, bool2)
     obj = CreateObject(model, coord.x,
     coord.y, coord.z, true, false, false)
     SetEntityAsMissionEntity(obj, true, false)
     SetEntityHeading(obj, head)
-    if bool then
+    if bool1 then
         PlaceObjectOnGroundProperly(obj)
-        FreezeEntityPosition(obj, true)
-        SetEntityCollision(obj, true, true)
+        FreezeEntityPosition(obj, bool1)
+    end
+    if bool2 then
+        SetEntityCompletelyDisableCollision(obj, bool2, bool2)
     end
     return obj
 end

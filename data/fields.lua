@@ -8,7 +8,7 @@ Data.Fields = {
     -- cannabis fields
     {
         -- location of farm area
-        spawn = vector3(-1636.984, 4581.880, 43.032),
+        spawn = vector3(1985.652, 502.773, 162.666),
         -- prop count / spawn size / label from locale
         count = 10, size = 15, label = 'cannabis',
         -- target sprite / sprite color
@@ -100,7 +100,7 @@ Data.Fields = {
     -- treasure fields
     {
         -- location of farm area
-        spawn = vector3(-1766.379, -1339.904, -32.556),
+        spawn = vector3(-2080.872, -1102.765, -52.202),
         -- prop count / spawn size / label from locale
         count = 5, size = 20, label = 'treasure',
         -- target sprite / sprite color
@@ -108,8 +108,7 @@ Data.Fields = {
         -- items to give on progbar completion
         item = {
             'trsr_doubloons', 'trsr_sharkstooth', 'trsr_sanddollar',
-            'trsr_seaglass', 'trsr_pearls', 'scrap_iron',
-            'scrap_wood'
+            'trsr_seaglass', 'trsr_pearls'
         },
         -- type for animation / min & max amount to give
         type = 'diving', amount = { min = 2, max = 5 },

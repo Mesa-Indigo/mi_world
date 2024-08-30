@@ -29,7 +29,6 @@ local loadvendor = function(data)
                         description = 'Item Value: '..v.value,
                         onSelect = function()
                             checkinv(k, v)
-                            lib.print.info(k..' '..v.label)
                         end,
                     }
                 end
@@ -49,9 +48,6 @@ local loadvendor = function(data)
     FreezeEntityPosition(ped.obj, true)
     SetBlockingOfNonTemporaryEvents(ped.obj, true)
     SetEntityInvincible(ped.obj, true)
-
-    lib.print.info(model)
-
     Target:addLocalEntity(ped.obj, pedops)
 
     if data.blip then
@@ -73,4 +69,4 @@ AddEventHandler('miwd:c:load:vendors', function()
     end
 end)
 
-TriggerEvent('miwd:c:load:vendors')
+TriggerServerEvent('miwd:s:load:vendors')
