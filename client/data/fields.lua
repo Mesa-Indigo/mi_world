@@ -41,6 +41,12 @@ local collect_mining = function(data)
     end
 end
 
+local collect_diving = function(data)
+    local result = math.random(data.amount.min, data.amount.max)
+    local choice = data.item[math.random(1, #data.item)]
+    lib.callback.await('mi:item:add', cache.ped, choice, result)
+end
+
 -- thread
 Citizen.CreateThread(function()
     while Shared.Fields do
@@ -62,13 +68,15 @@ Citizen.CreateThread(function()
                             label = locale('collect')..locale(v.label),
                             icon = v.sprite, iconColor = v.spcolor,
                             canInteract = function(_, distance)
-                                return distance < 1.5
+                                return distance < 2.0
                             end,
                             onSelect = function(data)
                                 if v.type == 'normal' then
                                     collect_normal(v)
                                 elseif v.type == 'mining' then
                                     collect_mining(v)
+                                elseif v.type == 'diving' then
+                                    collect_diving(v)
                                 end
                                 Cnt.Delete(data.entity)
                                 v.data.obj = v.data.obj - 1

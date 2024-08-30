@@ -97,6 +97,54 @@ Data.Fields = {
 
     ----------------------------------------------------------------
     ----------------------------------------------------------------
+    -- treasure fields
+    {
+        -- location of farm area
+        spawn = vector3(-1766.379, -1339.904, -32.556),
+        -- prop count / spawn size / label from locale
+        count = 5, size = 20, label = 'treasure',
+        -- target sprite / sprite color
+        sprite = 'fa-solid fa-box-open', spcolor = '#FFEC99',
+        -- items to give on progbar completion
+        item = {
+            'trsr_doubloons', 'trsr_sharkstooth', 'trsr_sanddollar',
+            'trsr_seaglass', 'trsr_pearls', 'scrap_iron',
+            'scrap_wood'
+        },
+        -- type for animation / min & max amount to give
+        type = 'diving', amount = { min = 2, max = 5 },
+        -- model to spawn / duration of progbar
+        model = 'xm_prop_x17_chest_closed', duration = 5000,
+        -- general data for list -! [do not touch] !-
+        data = { obj = 0, list = {}, set = nil }
+    },
+
+    ----------------------------------------------------------------
+    ----------------------------------------------------------------
+    -- recycling fields
+    {
+        -- location of farm area
+        spawn = vector3(-1742.730, -1005.666, 3.892),
+        -- prop count / spawn size / label from locale
+        count = 10, size = 20, label = 'recycling',
+        -- target sprite / sprite color
+        sprite = 'fa-solid fa-recycle', spcolor = '#69DB7C',
+        -- items to give on progbar completion
+        item = {
+            'scrap_iron', 'scrap_aluminium', 'scrap_wood',
+            'scrap_plastic', 'scrap_bottle', 'scrap_wires',
+            'scrap_bolts'
+        },
+        -- type for animation / min & max amount to give
+        type = 'normal', amount = { min = 2, max = 5 },
+        -- model to spawn / duration of progbar
+        model = 'prop_rub_binbag_05', duration = 5000,
+        -- general data for list -! [do not touch] !-
+        data = { obj = 0, list = {}, set = nil }
+    },
+
+    ----------------------------------------------------------------
+    ----------------------------------------------------------------
     -- farming fields
     {
         -- location of farm area
@@ -104,7 +152,7 @@ Data.Fields = {
         -- prop count / spawn size / label from locale
         count = 15, size = 20, label = 'vegetables',
         -- target sprite / sprite color
-        sprite = 'fa-solid fa-carrot', spcolor = '#8CE99A',
+        sprite = 'fa-solid fa-carrot', spcolor = '#FF922B',
         -- items to give on progbar completion
         item = {
             'ck_potatoes', 'ck_peppers', 'ck_onions',

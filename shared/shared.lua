@@ -19,3 +19,6 @@ lib.locale()
 
 -- load fields
 Shared.Fields = true
+
+-- load vendors
+Shared.Vend = true
