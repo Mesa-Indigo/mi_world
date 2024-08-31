@@ -16,13 +16,13 @@ Data.Vend = {
         model = 's_m_m_dockwork_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
         -- items to be sold
         items = {
-            ['scrap_iron'] =        { label = 'Iron Scraps',        value = 2 },
-            ['scrap_aluminium'] =   { label = 'Aluminium Scraps',   value = 2 },
-            ['scrap_wood'] =        { label = 'Wood Planks',        value = 2 },
-            ['scrap_plastic'] =     { label = 'Plastic Scraps',     value = 2 },
-            ['scrap_bottle'] =      { label = 'Glass Bottle',       value = 2 },
-            ['scrap_wires'] =       { label = 'Torn Wires',         value = 2 },
-            ['scrap_bolts'] =       { label = 'Bolts & Fittings',   value = 2 },
+            ['scrap_iron'] =        { label = 'Iron Scraps',        value = 3 },
+            ['scrap_aluminium'] =   { label = 'Aluminium Scraps',   value = 4 },
+            ['scrap_wood'] =        { label = 'Wood Planks',        value = 3 },
+            ['scrap_plastic'] =     { label = 'Plastic Scraps',     value = 4 },
+            ['scrap_bottle'] =      { label = 'Glass Bottle',       value = 4 },
+            ['scrap_wires'] =       { label = 'Torn Wires',         value = 5 },
+            ['scrap_bolts'] =       { label = 'Bolts & Fittings',   value = 3 },
         },
     },
     
@@ -39,13 +39,13 @@ Data.Vend = {
         model = 's_m_m_dockwork_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
         -- items to be sold
         items = {
-            ['scrap_iron'] =        { label = 'Iron Scraps',        value = 2 },
-            ['scrap_aluminium'] =   { label = 'Aluminium Scraps',   value = 2 },
-            ['scrap_wood'] =        { label = 'Wood Planks',        value = 2 },
-            ['scrap_plastic'] =     { label = 'Plastic Scraps',     value = 2 },
-            ['scrap_bottle'] =      { label = 'Glass Bottle',       value = 2 },
-            ['scrap_wires'] =       { label = 'Torn Wires',         value = 2 },
-            ['scrap_bolts'] =       { label = 'Bolts & Fittings',   value = 2 },
+            ['scrap_iron'] =        { label = 'Iron Scraps',        value = 3 },
+            ['scrap_aluminium'] =   { label = 'Aluminium Scraps',   value = 4 },
+            ['scrap_wood'] =        { label = 'Wood Planks',        value = 3 },
+            ['scrap_plastic'] =     { label = 'Plastic Scraps',     value = 4 },
+            ['scrap_bottle'] =      { label = 'Glass Bottle',       value = 4 },
+            ['scrap_wires'] =       { label = 'Torn Wires',         value = 5 },
+            ['scrap_bolts'] =       { label = 'Bolts & Fittings',   value = 3 },
         },
     },
 
@@ -81,12 +81,12 @@ Data.Vend = {
         model = 'a_m_y_business_03', scen = 'WORLD_HUMAN_AA_COFFEE',
         -- items to be sold
         items = {
-            ['ruby_uncut'] =        { label = 'Uncut Ruby',         value = 67 },
-            ['sapphire_uncut'] =    { label = 'Uncut Sapphire',     value = 71 },
-            ['emerald_uncut'] =     { label = 'Uncut Emerald',      value = 85 },
-            ['diamond_uncut'] =     { label = 'Uncut Diamond',      value = 101 },
+            ['ruby_uncut'] =        { label = 'Uncut Ruby',         value = 31 },
+            ['sapphire_uncut'] =    { label = 'Uncut Sapphire',     value = 43 },
+            ['emerald_uncut'] =     { label = 'Uncut Emerald',      value = 47 },
+            ['diamond_uncut'] =     { label = 'Uncut Diamond',      value = 53 },
 
-            ['trsr_doubloons'] =    { label = 'Gold Doubloons',     value = 73 },
+            ['trsr_doubloons'] =    { label = 'Gold Doubloons',     value = 53 },
             ['trsr_sharkstooth'] =  { label = 'Sharks Tooth',       value = 21 },
             ['trsr_sanddollar'] =   { label = 'Sand Dollar',        value = 13 },
             ['trsr_seaglass'] =     { label = 'Sea Glass',          value = 11 },
@@ -107,12 +107,12 @@ Data.Vend = {
         model = 'a_m_y_business_03', scen = 'WORLD_HUMAN_AA_COFFEE',
         -- items to be sold
         items = {
-            ['ruby_uncut'] =        { label = 'Uncut Ruby',         value = 67 },
-            ['sapphire_uncut'] =    { label = 'Uncut Sapphire',     value = 71 },
-            ['emerald_uncut'] =     { label = 'Uncut Emerald',      value = 85 },
-            ['diamond_uncut'] =     { label = 'Uncut Diamond',      value = 101 },
+            ['ruby_uncut'] =        { label = 'Uncut Ruby',         value = 31 },
+            ['sapphire_uncut'] =    { label = 'Uncut Sapphire',     value = 43 },
+            ['emerald_uncut'] =     { label = 'Uncut Emerald',      value = 47 },
+            ['diamond_uncut'] =     { label = 'Uncut Diamond',      value = 53 },
 
-            ['trsr_doubloons'] =    { label = 'Gold Doubloons',     value = 73 },
+            ['trsr_doubloons'] =    { label = 'Gold Doubloons',     value = 53 },
             ['trsr_sharkstooth'] =  { label = 'Sharks Tooth',       value = 21 },
             ['trsr_sanddollar'] =   { label = 'Sand Dollar',        value = 13 },
             ['trsr_seaglass'] =     { label = 'Sea Glass',          value = 11 },
@@ -199,11 +199,13 @@ Data.Vend = {
         model = 's_m_m_scientist_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
         -- items to be sold
         items = {
-            ['chem_sulfur'] =       { label = 'Potatoes',   value = 7 },
-            ['chem_potnitr'] =        { label = 'Peppers',    value = 9 },
-            ['chem_psdnrn'] =         { label = 'Onions',     value = 5 },
-            ['chem_iodine'] =        { label = 'Lettuce',    value = 7 },
-            ['chem_phsrus'] =       { label = 'Tomatoes',   value = 5 },
+            ['chem_sulfur'] =           { label = 'Sulfur',             value = 7 },
+            ['chem_potnitr'] =          { label = 'Potassium Nitrate',  value = 9 },
+            ['chem_psdnrn'] =           { label = 'Psuedoephedrine',    value = 5 },
+            ['chem_iodine'] =           { label = 'Iodine',             value = 7 },
+            ['chem_phsrus'] =           { label = 'Phosphorus',         value = 5 },
+            ['chem_amonia'] =           { label = 'Ammonia',            value = 7 },
+            ['chem_actone'] =           { label = 'Acetone',            value = 9 },
         },
     },
 }
