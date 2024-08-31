@@ -47,20 +47,31 @@ local collect_diving = function(data)
     lib.callback.await('mi:item:add', cache.ped, choice, result)
 end
 
+local getz = function(x, y, lvl)
+    local ground = { lvl-5, lvl-4, lvl-3, lvl-2, lvl-1, lvl, lvl+1, lvl+2, lvl+3, lvl+4, lvl+5 }
+    for i, height in ipairs(ground) do
+        local setground, z = GetGroundZFor_3dCoord(x, y, height, true)
+        if setground then
+            return z
+        end
+    end
+end
+
 -- thread
 Citizen.CreateThread(function()
     while Shared.Fields do
-        local cooldown = 2500
+        local cooldown = 500
         for k, v in ipairs(Data.Fields) do
-            if lib.getNearbyPlayers(v.spawn, 50, true) then
+            if lib.getNearbyPlayers(v.spawn, 50, true) == 0 then
+                Cnt.Delete(v.data.obj)
+                v.data.obj = v.data.obj - 1
+                return
+            else
                 if v.data.obj < v.count then
                     lib.requestModel(v.model, cooldown)
                     local loc = v.spawn
-                    v.data.set = Cnt.Create_Prop(v.data.set, v.model,
-                    vec3(loc.x+math.random(-v.size, v.size),
-                    loc.y+math.random(-v.size, v.size), loc.z-1),
-                    math.random(1, 359), true)
-                    PlaceObjectOnGroundProperly(v.data.set)
+                    v.data.set = Cnt.Create_Prop(v.data.set, v.model, vec3(loc.x+math.random(-v.size, v.size),
+                    loc.y+math.random(-v.size, v.size), loc.z-0.1), math.random(1, 359), true)
                     table.insert(v.data.list, v.data.set)
                     v.data.obj = v.data.obj + 1
                     local options = {

@@ -30,7 +30,7 @@ Data.Fields = {
     -- coca fields
     {
         -- location of farm area
-        spawn = vector3(-313.676, 3788.287, 68.120),
+        spawn = vector3(-388.908, 4347.235, 55.705),
         -- prop count / spawn size / label from locale
         count = 10, size = 15, label = 'cocaleaf',
         -- target sprite / sprite color
@@ -76,7 +76,27 @@ Data.Fields = {
     -- chemical fields
     {
         -- location of farm area
-        spawn = vector3(-2324.816, 2396.272, 3.047),
+        spawn = vector3(-2155.163, 2690.645, 2.922),
+        -- prop count / spawn size / label from locale
+        count = 10, size = 20, label = 'chemicals',
+        -- target sprite / sprite color
+        sprite = 'fa-solid fa-flask-vial', spcolor = '#66D9E8',
+        -- items to give on progbar completion
+        item = {
+            'chem_sulfur', 'chem_potnitr', 'chem_psdnrn',
+            'chem_iodine', 'chem_phsrus', 'chem_amonia',
+            'chem_actone'
+        },
+        -- type for animation / min & max amount to give
+        type = 'normal', amount = { min = 2, max = 5 },
+        -- model to spawn / duration of progbar
+        model = 'xm3_prop_xm3_barrel_01a', duration = 5000,
+        -- general data for list -! [do not touch] !-
+        data = { obj = 0, list = {}, set = nil }
+    },
+    {
+        -- location of farm area
+        spawn = vector3(-2540.202, 2688.897, 2.850),
         -- prop count / spawn size / label from locale
         count = 10, size = 20, label = 'chemicals',
         -- target sprite / sprite color
