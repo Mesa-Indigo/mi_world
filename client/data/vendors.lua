@@ -42,7 +42,7 @@ local loadvendor = function(data)
         }
     }
     local ped = { obj = nil, spawned = false}
-    local model, crd = lib.requestModel(data.model), data.spawn
+    local model, crd = lib.requestModel(data.model, 500), data.spawn
     ped.obj = CreatePed(1, model, crd.x, crd.y, crd.z-1, crd.w, true, false)
     TaskStartScenarioInPlace(ped.obj, data.scen, 0, true)
     FreezeEntityPosition(ped.obj, true)
