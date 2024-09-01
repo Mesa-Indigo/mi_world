@@ -70,7 +70,8 @@ Citizen.CreateThread(function()
                 if v.data.obj < v.count then
                     lib.requestModel(v.model, cooldown)
                     local loc = v.spawn
-                    v.data.set = Cnt.Create_Prop(v.data.set, v.model, vec3(loc.x+math.random(-v.size, v.size),
+                    local model = lib.requestAnimDict(v.model, 500)
+                    v.data.set = Cnt.Create_Prop(v.data.set, model, vec3(loc.x+math.random(-v.size, v.size),
                     loc.y+math.random(-v.size, v.size), loc.z-0.1), math.random(1, 359), true)
                     table.insert(v.data.list, v.data.set)
                     v.data.obj = v.data.obj + 1
