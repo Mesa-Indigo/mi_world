@@ -43,7 +43,7 @@ Citizen.CreateThread(function()
             if not DoesEntityExist(ghost.obj) then
                 local form, point, head = choice(forms),
                 choice(points), math.random(1, 360)
-                Cnt.Create_Prop(ghost.obj, form, point, head, false, false)
+                Cnt.Create_Prop(ghost.obj, lib.requestModel(form, 300), point, head, false, false)
                 ghost.spawned = true
                 if Debug then
                     lib.print.info('Ghost Sighting: '..point)
