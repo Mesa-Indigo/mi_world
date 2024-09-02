@@ -12,7 +12,7 @@ description 'activities & interactions around the world of FiveM'
 
 --[[    dependancies    ]]--
 dependencies { 
-    '/server:7290', '/onesync',
+    '/server:7290',
     'ox_lib', 'ox_target', 'ox_inventory'
 }
 
