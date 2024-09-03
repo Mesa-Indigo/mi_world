@@ -50,8 +50,6 @@ files {
     'stream/**/*.ymap',
     'stream/**/*.ymt',
     'stream/**/*.ybn',
-    'stream/**/*.ydr',
-    'stream/**/*.ytyp'
 
     -- 'stream/**/*.ymf',
     -- 'stream/**/*.ycd',
