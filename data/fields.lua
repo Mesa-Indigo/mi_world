@@ -30,7 +30,7 @@ Data.Fields = {
     -- coca fields
     {
         -- location of farm area
-        spawn = vector3(-388.908, 4347.235, 55.705),
+        spawn = vector3(-313.761, 3793.664, 68.078),
         -- prop count / spawn size / label from locale
         count = 10, size = 15, label = 'cocaleaf',
         -- target sprite / sprite color
@@ -42,7 +42,7 @@ Data.Fields = {
         -- type for animation / min & max amount to give
         type = 'normal', amount = { min = 2, max = 5 },
         -- model to spawn / duration of progbar
-        model = 'bzzz_plant_coca_b', duration = 5000,
+        model = 'prop_plant_01a', duration = 5000,
         -- general data for list -! [do not touch] !-
         data = { obj = 0, list = {}, set = nil }
     },
@@ -133,7 +133,7 @@ Data.Fields = {
         -- type for animation / min & max amount to give
         type = 'diving', amount = { min = 2, max = 5 },
         -- model to spawn / duration of progbar
-        model = 'xm_prop_x17_chest_closed', duration = 5000,
+        model = 'v_ind_cfcrate3', duration = 5000,
         -- general data for list -! [do not touch] !-
         data = { obj = 0, list = {}, set = nil }
     },
@@ -157,7 +157,7 @@ Data.Fields = {
         -- type for animation / min & max amount to give
         type = 'normal', amount = { min = 2, max = 5 },
         -- model to spawn / duration of progbar
-        model = 'prop_rub_binbag_05', duration = 5000,
+        model = 'prop_rub_binbag_03', duration = 5000,
         -- general data for list -! [do not touch] !-
         data = { obj = 0, list = {}, set = nil }
     },

@@ -25,7 +25,7 @@ Data.Vend = {
             ['scrap_bolts'] =       { label = 'Bolts & Fittings',   value = 3 },
         },
     },
-    
+
     recycle2 = {
         -- blip active / sprite / color / scale
         blip = true, sprite = 728, color = 43, scale = 0.6,
