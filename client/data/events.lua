@@ -47,15 +47,54 @@ RegisterCommand('stockd', function()
 end, false)
 ]]
 
+local prepveh = function(vehicle)
+    for i = 2, 3 do
+        SetVehicleDoorOpen(vehicle, i, false, false)
+    end Wait(1000)
+    FreezeEntityPosition(vehicle, true)
+end
+
+local getstuff = function(vehicle)
+    if lib.progressBar({
+        duration = 5000,
+        label = 'Cutting Doors',
+        useWhileDead = false, canCancel = true,
+        disable = {
+            car = true, move = true
+        },
+        anim = {
+            dict = 'anim@heists@fleeca_bank@drilling',
+            clip = 'drill_straight_end'
+        },
+        prop = {
+            bone = 28422,
+            model = `prop_tool_consaw`,
+            pos = vec3(0.0, 0.09, 0.05),
+            rot = vec3(0.0, 0.0, 90.0),
+            blendIn = 3.0, blendOut = 3.0,
+        },
+    })
+    then
+        print('Do stuff when complete')
+        prepveh(vehicle)
+    else
+        print('Do stuff when cancelled')
+    end
+end
+
 RegisterCommand('stockd', function()
+
+    -- set models
     local st = vec4(1142.521, -3274.715, 5.900, 230.111)
     local car, model = lib.requestModel('stockade'), lib.requestModel('mp_s_m_armoured_01')
 
+    -- spawn ped / vehicle
     local vehicle = CreateVehicle(car, st.x, st.y, st.z, st.w, true, false)
     local ped = CreatePedInsideVehicle(vehicle, 1, model, -1, true, false)
 
+    -- set target
     local ofst = GetOffsetFromEntityInWorldCoords(vehicle, -0.01, -3.4, 1.05)
-    local zone = Target:addSphereZone({
+    local target = Target:addSphereZone({
         name = "stocket",
         coords = vec3(ofst.x, ofst.y, ofst.z),
         radius = 0.5, debug = true, options = {
@@ -67,6 +106,11 @@ RegisterCommand('stockd', function()
                 end,
                 onSelect = function()
                     lib.print.info('did a crime')
+                    TaskTurnPedToFaceEntity(cache.ped, vehicle, 2000)
+                    Wait(1000)
+                    SetEntityHeading(cache.ped, GetEntityHeading(vehicle))
+                    SetEntityCoords(cache.ped, ofst.x-0.7, ofst.y+0.9, ofst.z-1.8, true, false, false, false)
+                    getstuff(vehicle)
                 end
             }
         }
