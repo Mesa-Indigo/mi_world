@@ -47,11 +47,20 @@ RegisterCommand('stockd', function()
 end, false)
 ]]
 
+local stkd = {
+    prp_sawbd = 'prop_tool_consaw',
+    plt_money = 'vw_prop_vw_crate_02a',
+    plt_empty = 'hei_prop_cash_crate_empty'
+}
+
 local prepveh = function(vehicle)
+    -- open doors
     for i = 2, 3 do
         SetVehicleDoorOpen(vehicle, i, false, false)
     end Wait(1000)
     FreezeEntityPosition(vehicle, true)
+    -- load object
+
 end
 
 local getstuff = function(vehicle)
@@ -68,7 +77,7 @@ local getstuff = function(vehicle)
         },
         prop = {
             bone = 28422,
-            model = `prop_tool_consaw`,
+            model = stkd.prp_sawbd,
             pos = vec3(0.0, 0.09, 0.05),
             rot = vec3(0.0, 0.0, 90.0),
             blendIn = 3.0, blendOut = 3.0,
@@ -82,7 +91,38 @@ local getstuff = function(vehicle)
     end
 end
 
-RegisterCommand('stockd', function()
+--if not IsVehicleStopped(vehicle) then return end
+
+local checkvehicle = function(vehicle)
+    local burst
+    local tires1 = { 0, 1, 4, 5, 2, 3, 45, 47 }
+    for _,check in pairs(tires1) do
+        burst = IsVehicleTyreBurst(vehicle, check, false)
+        if burst == true then
+            return true
+        else
+            return false
+        end
+    end
+end
+
+local setped = function(ped, vehicle)
+    SetVehicleEngineOn(vehicle, false, true, true)
+    Wait(2000)
+    TaskLeaveVehicle(ped, vehicle, 1)
+
+    SetPedRelationshipGroupHash(ped, 'HATES_PLAYER')
+    SetRelationshipBetweenGroups(5, 'HATES_PLAYER', 'PLAYER')
+    --attacks on sight
+    GiveWeaponToPed(ped, GetHashKey('WEAPON_COMBATPISTOL'), 60, false, true)
+    SetCurrentPedWeapon(ped, GetHashKey('WEAPON_COMBATPISTOL'), true)
+    SetPedAccuracy(ped, math.random(20, 50))
+    SetPedCombatRange(ped, 2)
+    SetPedAsEnemy(ped, true)
+end
+
+--[[    reference for roaming stockade
+    RegisterCommand('stockd', function()
 
     -- set models
     local st = vec4(1142.521, -3274.715, 5.900, 230.111)
@@ -92,9 +132,32 @@ RegisterCommand('stockd', function()
     local vehicle = CreateVehicle(car, st.x, st.y, st.z, st.w, true, false)
     local ped = CreatePedInsideVehicle(vehicle, 1, model, -1, true, false)
 
+    TaskVehicleDriveWander(ped, vehicle, 5.0, 447)
+
+    while not checkvehicle(vehicle) do
+        if not IsVehicleStopped(vehicle) then
+            return
+        else
+            break end
+        Wait(1000)
+    end
+
+    local burst
+
+    while not burst do
+        local tires1 = { 0, 1, 4, 5, 2, 3, 45, 47 }
+        for _,check in pairs(tires1) do
+            burst = IsVehicleTyreBurst(vehicle, check, false)
+            return burst
+        end
+        Wait(1000)
+    end
+
+    setped(ped, vehicle)
+
     -- set target
     local ofst = GetOffsetFromEntityInWorldCoords(vehicle, -0.01, -3.4, 1.05)
-    local target = Target:addSphereZone({
+    local zone = Target:addSphereZone({
         name = "stocket",
         coords = vec3(ofst.x, ofst.y, ofst.z),
         radius = 0.5, debug = true, options = {
@@ -104,7 +167,8 @@ RegisterCommand('stockd', function()
                 canInteract = function(_, distance)
                     return distance < 1.2
                 end,
-                onSelect = function()
+                onSelect = function(data)
+                    data.entity = vehicle
                     lib.print.info('did a crime')
                     TaskTurnPedToFaceEntity(cache.ped, vehicle, 2000)
                     Wait(1000)
@@ -117,3 +181,4 @@ RegisterCommand('stockd', function()
     })
 
 end, false)
+]]
