@@ -1,20 +1,31 @@
 
-Data.Vend = {
-    ----------------------------------------------------------------
-    ----------------------------------------------------------------
-    -- recycling vendor
-    recycle1 = {
-        -- blip active / sprite / color / scale
-        blip = true, sprite = 728, color = 43, scale = 0.6,
-        -- blip name
-        bname = 'Recycle Center',
-        -- menu details
+return {
+
+    ------------------------------------------------
+    ------------------------------------------------
+    --- Farming Vendors
+    {
+        blip = true, sprite = 473, color = 24, scale = 0.6, name = 'Farmer\'s Market',
+        label = 'Farmer\'s Market', icon = 'farm',
+        spawn = vec4(1676.142, 4883.424, 42.060, 59.78),
+        model = 'a_m_m_farmer_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
+        items = {
+            ['ck_potatoes'] =       { label = 'Potatoes',   value = 7 },
+            ['ck_peppers'] =        { label = 'Peppers',    value = 9 },
+            ['ck_onions'] =         { label = 'Onions',     value = 5 },
+            ['ck_lettuce'] =        { label = 'Lettuce',    value = 7 },
+            ['ck_tomatoes'] =       { label = 'Tomatoes',   value = 5 },
+        },
+    },
+
+    ------------------------------------------------
+    ------------------------------------------------
+    --- Recycle Vendors
+    {
+        blip = true, sprite = 728, color = 43, scale = 0.6, name = 'Recycle Center',
         label = 'Recycling', icon = 'recycle',
-        -- location of vendor
         spawn = vec4(-318.765, -1545.635, 27.811, 339.67),
-        -- model of vendor / animaiton
         model = 's_m_m_dockwork_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
-        -- items to be sold
         items = {
             ['scrap_iron'] =        { label = 'Iron Scraps',        value = 3 },
             ['scrap_aluminium'] =   { label = 'Aluminium Scraps',   value = 4 },
@@ -25,19 +36,11 @@ Data.Vend = {
             ['scrap_bolts'] =       { label = 'Bolts & Fittings',   value = 3 },
         },
     },
-
-    recycle2 = {
-        -- blip active / sprite / color / scale
-        blip = true, sprite = 728, color = 43, scale = 0.6,
-        -- blip name
-        bname = 'Recycle Center',
-        -- menu details
+    {
+        blip = true, sprite = 728, color = 43, scale = 0.6, name = 'Recycle Center',
         label = 'Recycling', icon = 'recycle',
-        -- location of vendor
         spawn = vec4(-192.577, 6268.700, 31.489, 40.57),
-        -- model of vendor / animaiton
         model = 's_m_m_dockwork_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
-        -- items to be sold
         items = {
             ['scrap_iron'] =        { label = 'Iron Scraps',        value = 3 },
             ['scrap_aluminium'] =   { label = 'Aluminium Scraps',   value = 4 },
@@ -49,18 +52,14 @@ Data.Vend = {
         },
     },
 
-    mining = {
-        -- blip active / sprite / color / scale
-        blip = true, sprite = 478, color = 47, scale = 0.6,
-        -- blip name
-        bname = 'Steelworks',
-        -- menu details
+    ------------------------------------------------
+    ------------------------------------------------
+    --- Mining Vendors
+    {
+        blip = true, sprite = 478, color = 47, scale = 0.6, name = 'Steelworks',
         label = 'Materials', icon = 'hammer',
-        -- location of vendor
         spawn = vec4(973.536, -1936.760, 32.222, 357.687),
-        -- model of vendor / animaiton
         model = 'a_m_y_vindouche_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
-        -- items to be sold
         items = {
             ['ore_iron'] =        { label = 'Iron Ore',     value = 27 },
             ['ore_gold'] =        { label = 'Gold Ore',     value = 49 },
@@ -68,18 +67,14 @@ Data.Vend = {
         },
     },
 
-    pawn1 = {
-        -- blip active / sprite / color / scale
-        blip = true, sprite = 617, color = 35, scale = 0.6,
-        -- blip name
-        bname = 'Pawn & Jewelry',
-        -- menu details
+    ------------------------------------------------
+    ------------------------------------------------
+    --- Pawn Vendors
+    {
+        blip = true, sprite = 617, color = 35, scale = 0.6, name = 'Pawn & Jewelry',
         label = 'Pawn', icon = 'gem',
-        -- location of vendor
         spawn = vec4(-1466.440, -395.767, 38.259, 35.962),
-        -- model of vendor / animaiton
         model = 'a_m_y_business_03', scen = 'WORLD_HUMAN_AA_COFFEE',
-        -- items to be sold
         items = {
             ['ruby_uncut'] =        { label = 'Uncut Ruby',         value = 31 },
             ['sapphire_uncut'] =    { label = 'Uncut Sapphire',     value = 43 },
@@ -93,19 +88,11 @@ Data.Vend = {
             ['trsr_pearls'] =       { label = 'Pearls',             value = 47 },
         },
     },
-
-    pawn2 = {
-        -- blip active / sprite / color / scale
-        blip = true, sprite = 617, color = 35, scale = 0.6,
-        -- blip name
-        bname = 'Pawn & Jewelry',
-        -- menu details
+    {
+        blip = true, sprite = 617, color = 35, scale = 0.6, name = 'Pawn & Jewelry',
         label = 'Pawn', icon = 'gem',
-        -- location of vendor
         spawn = vec4(-308.739, 6196.721, 31.493, 314.444),
-        -- model of vendor / animaiton
         model = 'a_m_y_business_03', scen = 'WORLD_HUMAN_AA_COFFEE',
-        -- items to be sold
         items = {
             ['ruby_uncut'] =        { label = 'Uncut Ruby',         value = 31 },
             ['sapphire_uncut'] =    { label = 'Uncut Sapphire',     value = 43 },
@@ -120,18 +107,14 @@ Data.Vend = {
         },
     },
 
-    cannabis = {
-        -- blip active / sprite / color / scale
-        blip = true, sprite = 496, color = 25, scale = 0.6,
-        -- blip name
-        bname = 'Smoke on the Water',
-        -- menu details
+    ------------------------------------------------
+    ------------------------------------------------
+    --- Cannabis Vendors
+    {
+        blip = true, sprite = 496, color = 25, scale = 0.6, name = 'Smoke on the Water',
         label = 'Cannabis', icon = 'cannabis',
-        -- location of vendor
         spawn = vec4(-1168.980, -1573.032, 4.663, 128.387),
-        -- model of vendor / animaiton
         model = 'a_m_y_beach_01', scen = 'WORLD_HUMAN_SMOKING_POT_CLUBHOUSE',
-        -- items to be sold
         items = {
             ['pc_sativa'] =         { label = 'Sativa Buds',        value = 35 },
             ['pc_indica'] =         { label = 'Indica Buds',        value = 31 },
@@ -143,18 +126,14 @@ Data.Vend = {
         },
     },
 
-    meth = {
-        -- blip active / sprite / color / scale
-        blip = true, sprite = 514, color = 18, scale = 0.6,
-        -- blip name
-        bname = 'Altruist Dealer',
-        -- menu details
+    ------------------------------------------------
+    ------------------------------------------------
+    --- Hard Drugs Vendors
+    {
+        blip = true, sprite = 514, color = 18, scale = 0.6, name = 'Altruist Dealer',
         label = 'Hard Drugs', icon = 'drugs',
-        -- location of vendor
         spawn = vec4(-1113.306, 4903.672, 218.595, 314.702),
-        -- model of vendor / animaiton
         model = 'a_m_y_acult_02', scen = 'WORLD_HUMAN_SMOKING_POT_CLUBHOUSE',
-        -- items to be sold
         items = {
             ['pd_meth'] =         { label = 'Powdered Meth',            value = 131 },
             ['cr_meth'] =         { label = 'Crystal Meth',             value = 153 },
@@ -165,39 +144,14 @@ Data.Vend = {
         },
     },
 
-    farmmarket = {
-        -- blip active / sprite / color / scale
-        blip = true, sprite = 473, color = 24, scale = 0.6,
-        -- blip name
-        bname = 'Farmer\'s Market',
-        -- menu details
-        label = 'Farmer\'s Market', icon = 'farm',
-        -- location of vendor
-        spawn = vec4(1676.142, 4883.424, 42.060, 59.78),
-        -- model of vendor / animaiton
-        model = 'a_m_m_farmer_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
-        -- items to be sold
-        items = {
-            ['ck_potatoes'] =       { label = 'Potatoes',   value = 7 },
-            ['ck_peppers'] =        { label = 'Peppers',    value = 9 },
-            ['ck_onions'] =         { label = 'Onions',     value = 5 },
-            ['ck_lettuce'] =        { label = 'Lettuce',    value = 7 },
-            ['ck_tomatoes'] =       { label = 'Tomatoes',   value = 5 },
-        },
-    },
-
-    humanelabs = {
-        -- blip active / sprite / color / scale
-        blip = true, sprite = 499, color = 30, scale = 0.6,
-        -- blip name
-        bname = 'Humane Chemicals',
-        -- menu details
+    ------------------------------------------------
+    ------------------------------------------------
+    --- Chemicals Vendors
+    {
+        blip = true, sprite = 499, color = 30, scale = 0.6, name = 'Humane Chemicals',
         label = 'Humane Chemicals', icon = 'chemicals',
-        -- location of vendor
         spawn = vec4(3566.354, 3703.531, 36.642, 338.177),
-        -- model of vendor / animaiton
         model = 's_m_m_scientist_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
-        -- items to be sold
         items = {
             ['chem_sulfur'] =           { label = 'Sulfur',             value = 7 },
             ['chem_potnitr'] =          { label = 'Potassium Nitrate',  value = 9 },

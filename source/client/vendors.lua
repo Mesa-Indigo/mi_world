@@ -1,9 +1,10 @@
 
 -- variables
-
+local vendors = require 'data.vendors'
+local vlist = {}
 
 -- functions
-local checkinv = function(item, data)
+VendorInvCheck = function(item, data)
     local count = Inventory:Search('count', item)
     if count == 0 then
         return
@@ -12,8 +13,11 @@ local checkinv = function(item, data)
     end
 end
 
-local loadvendor = function(data)
-    local pedops = {
+VendorLoad = function(data)
+    local ped = nil
+    local model = lib.requestModel(data.model, 300)
+
+    local options = {
         {
             name = 'vendor',
             label = locale('vendor'),
@@ -28,7 +32,7 @@ local loadvendor = function(data)
                         title = v.label,
                         description = 'Item Value: '..v.value,
                         onSelect = function()
-                            checkinv(k, v)
+                            VendorInvCheck(k, v)
                         end,
                     }
                 end
@@ -41,30 +45,31 @@ local loadvendor = function(data)
             end
         }
     }
-    local ped = { obj = nil, spawned = false}
-    local model, crd = lib.requestModel(data.model, 1000), data.spawn
-    ped.obj = CreatePed(1, model, crd.x, crd.y, crd.z-1, crd.w, true, false)
-    TaskStartScenarioInPlace(ped.obj, data.scen, 0, true)
-    FreezeEntityPosition(ped.obj, true)
-    SetBlockingOfNonTemporaryEvents(ped.obj, true)
-    SetEntityInvincible(ped.obj, true)
-    Target:addLocalEntity(ped.obj, pedops)
+
+    ped = CreatePed(1, model, data.spawn.x, data.spawn.y,
+    data.spawn.z-1, data.spawn.w, true, false)
+    TaskStartScenarioInPlace(ped, data.scen, 0, true)
+    FreezeEntityPosition(ped, true)
+    SetBlockingOfNonTemporaryEvents(ped, true)
+    SetEntityInvincible(ped, true)
+    Target:addLocalEntity(ped, options)
+
+    table.insert(vlist, ped)
 
     if data.blip then
         local blip = AddBlipForCoord(data.spawn.x, data.spawn.y, data.spawn.z)
         SetBlipSprite(blip, data.sprite) SetBlipDisplay(blip, 4)
         SetBlipScale(blip, data.scale) SetBlipColour(blip, data.color)
         SetBlipAsShortRange(blip, true) BeginTextCommandSetBlipName("STRING")
-        AddTextComponentString(data.bname) EndTextCommandSetBlipName(blip)
+        AddTextComponentString(data.name) EndTextCommandSetBlipName(blip)
     end
 end
 
--- event
 RegisterNetEvent('miwd:c:load:vendors')
 AddEventHandler('miwd:c:load:vendors', function()
-    if Shared.Vend then
-        for k, v in pairs(Data.Vend) do
-            loadvendor(v)
+    if Shared.vendor then
+        for k, v in pairs(vendors) do
+            VendorLoad(v)
         end
     end
 end)

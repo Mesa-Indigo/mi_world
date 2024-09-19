@@ -1,15 +1,12 @@
 {
-    "debug": "Debug: ",
+    "debug": "Debug Mode Active: ",
 
-    "load_in": "Connected: ",
-    "load_out": "Disconnected: ",
-
-    "user_name": "User: ",
-    "user_usid": "User ID: ",
-    "user_idnt": "User Identifier: ",
-    "char_stid": "State ID: ",
-
-    "user_unkn": "User not found in database",
+    "ig_sec": "Second: ",
+    "ig_min": "Minute: ",
+    "ig_hrs": "Hour: ",
+    "ig_day": "Day: ",
+    "ig_wkd": "Week: ",
+    "ig_mth": "Month: ",
 
     "collect": "Collect: ",
     "collecting": "Collecting ",

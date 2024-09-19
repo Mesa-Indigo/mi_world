@@ -1,58 +1,47 @@
---[[    cfx.re information    ]]--
+
+-- game / build information
 use_experimental_fxv2_oal 'yes'
-fx_version 'cerulean'
-lua54 'yes' game 'gta5'
+fx_version 'cerulean' lua54 'yes' game 'gta5'
 
---[[    resource information    ]]--
-name 'mi_world'
-author 'Agimir'
-version '1.0.0'
-repository 'https://github.com/Mesa-Indigo/mi_world'
-description 'activities & interactions around the world of FiveM'
+-- resource information
+repository 'https://github.com/Mesa-Indigo/mi_core'
+description 'ox_core based script'
+author 'Agimir' name 'MI_CORE' version '0.0.1'
+license 'LGPL-3.0-or-later'
 
---[[    dependancies    ]]--
-dependencies { 
-    '/server:7290',
-    'ox_lib', 'ox_target', 'ox_inventory'
+-- resource dependencies
+dependencies {
+    'oxmysql',
+    'ox_lib',
+    'ox_inventory'
 }
 
---[[    manifest information    ]]--
+-- shared files
 shared_scripts {
-    -- overextended dependancies
     '@ox_lib/init.lua',
-
-    -- core resources
-    'shared/*.lua',
-    'data/*.lua',
-    'utils/interface.lua'
+    'source/shared/*.lua',
+    'source/util/interface.lua',
+    'data/*.lua', 'config.lua'
 }
 
+-- client files
 client_scripts {
-    -- core resources
-    'client/**/*.lua',
-    'utils/client.lua'
+    'source/client/**/*.lua',
+    'source/util/client.lua',
 }
 
+-- server files
 server_scripts {
-    -- overextended dependancies
     '@oxmysql/lib/MySQL.lua',
-
-    -- core resources
-    'server/**/*.lua',
-    'utils/server.lua'
+    'source/server/**/*.lua',
+    'source/util/server.lua',
 }
 
+-- resource files
 files {
-    -- locale files
     'locales/*.json',
 
-    -- ymap files
     'stream/**/*.ymap',
     'stream/**/*.ymt',
     'stream/**/*.ybn',
-
-    -- 'stream/**/*.ymf',
-    -- 'stream/**/*.ycd',
-    -- 'stream/**/*.ytd',
-    -- 'stream/**/*.yft',
 }
