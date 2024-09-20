@@ -25,7 +25,7 @@ return {
         blip = true, sprite = 728, color = 43, scale = 0.6, name = 'Recycle Center',
         label = 'Recycling', icon = 'recycle',
         spawn = vec4(-318.765, -1545.635, 27.811, 339.67),
-        model = 's_m_m_dockwork_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
+        model = 'a_m_m_hillbilly_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
         items = {
             ['scrap_iron'] =        { label = 'Iron Scraps',        value = 3 },
             ['scrap_aluminium'] =   { label = 'Aluminium Scraps',   value = 4 },
@@ -40,7 +40,7 @@ return {
         blip = true, sprite = 728, color = 43, scale = 0.6, name = 'Recycle Center',
         label = 'Recycling', icon = 'recycle',
         spawn = vec4(-192.577, 6268.700, 31.489, 40.57),
-        model = 's_m_m_dockwork_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
+        model = 'a_m_m_hillbilly_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
         items = {
             ['scrap_iron'] =        { label = 'Iron Scraps',        value = 3 },
             ['scrap_aluminium'] =   { label = 'Aluminium Scraps',   value = 4 },

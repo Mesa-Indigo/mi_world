@@ -15,7 +15,7 @@ end
 
 VendorLoad = function(data)
     local ped = nil
-    local model = lib.requestModel(data.model, 300)
+    local model = lib.requestModel(data.model, 1000)
 
     local options = {
         {
@@ -65,13 +65,8 @@ VendorLoad = function(data)
     end
 end
 
-RegisterNetEvent('miwd:c:load:vendors')
-AddEventHandler('miwd:c:load:vendors', function()
-    if Shared.vendor then
-        for k, v in pairs(vendors) do
-            VendorLoad(v)
-        end
+if Shared.vendor then
+    for k, v in pairs(vendors) do
+        VendorLoad(v)
     end
-end)
-
-TriggerServerEvent('miwd:s:load:vendors')
+end
