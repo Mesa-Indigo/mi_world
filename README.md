@@ -1,4 +1,4 @@
-<p align="center"> <a> <img width="180" src="https://github.com/user-attachments/assets/7e3c0553-d047-4547-9829-cad2230886fa" alt="SnailyCAD logo"> </a> </p>
+<p align="center"> <a> <img width="180" src="https://github.com/user-attachments/assets/562e09eb-b427-408a-a231-751c3983db0c" alt="mi_logo"> </a> </p>
 
 # Mesa Indigo Development
 Dedicated to creating free FiveM resources with quality and trashy goodness. From items, world systems, jobs, and other server resources, you may never need to spend another penny for a script again.
