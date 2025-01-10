@@ -8,6 +8,8 @@ Shared.fields = true
 
 Shared.vendor = true
 
+Shared.newspaper
+
 -- server options
 Shared.options = {
 
