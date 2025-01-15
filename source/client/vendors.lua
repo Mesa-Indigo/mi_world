@@ -67,6 +67,7 @@ end
 
 if Shared.vendor then
     for k, v in pairs(vendors) do
+        Wait(300)
         VendorLoad(v)
     end
 end

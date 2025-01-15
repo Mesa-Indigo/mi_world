@@ -54,7 +54,7 @@ Citizen.CreateThread(function()
         if Shared.fields then
             Wait(350)
             for k, v in ipairs(field) do
-                if #(GetEntityCoords(cache.ped) - v.spawn) < 50 then
+                if #(GetEntityCoords(cache.ped) - v.spawn) < 100 then
                     if v.data.obj < v.count then
                         local model = lib.requestModel(v.model, 300)
                         v.data.set = CreateObject(model,

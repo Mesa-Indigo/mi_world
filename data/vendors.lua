@@ -8,7 +8,7 @@ return {
         blip = true, sprite = 473, color = 24, scale = 0.6, name = 'Farmer\'s Market',
         label = 'Farmer\'s Market', icon = 'farm',
         spawn = vec4(1676.142, 4883.424, 42.060, 59.78),
-        model = 'a_m_m_farmer_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
+        model = 's_m_m_cntrybar_01', scen = 'WORLD_HUMAN_CLIPBOARD_FACILITY',
         items = {
             ['ck_potatoes'] =       { label = 'Potatoes',   value = 7 },
             ['ck_peppers'] =        { label = 'Peppers',    value = 9 },
