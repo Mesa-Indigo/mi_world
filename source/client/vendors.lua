@@ -2,6 +2,7 @@
 -- variables
 local vendors = require 'data.vendors'
 local vlist = {}
+local wait = 1000
 
 -- functions
 VendorInvCheck = function(item, data)
@@ -15,7 +16,7 @@ end
 
 VendorLoad = function(data)
     local ped = nil
-    local model = lib.requestModel(data.model, 1000)
+    local model = lib.requestModel(data.model, wait)
 
     local options = {
         {
@@ -67,7 +68,7 @@ end
 
 if Shared.vendor then
     for k, v in pairs(vendors) do
-        Wait(300)
+        Wait(wait)
         VendorLoad(v)
     end
 end
