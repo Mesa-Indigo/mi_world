@@ -2,15 +2,16 @@
 -- locale option
 Locale = 'en'
 
--- configurable options
-
+-- activate farming fields
 Shared.fields = true
 
+-- activate vendors for players
 Shared.vendor = true
 
-Shared.newspaper = true
+-- activate hunting system
+Shared.hunting = true
 
--- server options
+-- server preferences
 Shared.options = {
 
     -- enable vanilla dispatch
